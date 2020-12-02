@@ -1,0 +1,188 @@
+body{
+    background-image: url(../img/luz.jpg);
+    background-size: cover;
+    margin: 0;
+    padding: 0;
+}
+.frame-cuadro {
+position: absolute;
+top: 50%;
+left: 50%;
+width: 400px;
+height: 400px;
+margin-top: -200px;
+margin-left: -200px;   
+box-shadow: 4px 8px 16px 0 rgba(0, 0, 0, 0.1);
+overflow: hidden;
+background: rgba(0,0,0,0.7);
+font-family: "Open Sans", Helvetica, sans-serif;
+-webkit-font-smoothing: antialiased;
+-moz-osx-font-smoothing: grayscale;
+}
+
+input[type=checkbox]:checked ~ svg {
+border-color: none !important;
+}
+.center {
+position: absolute;
+top: 50%;
+left: 50%;
+transform: translate(-50%, -50%);
+}
+
+.circle {
+position: absolute;
+left: 50%;
+top: 40%;
+transform: translate(-50%, -50%);
+width: 200px;
+height: 200px;
+border-radius: 50%;
+background-color: orange;
+
+}
+
+.ring {
+position: absolute;
+left: 50%;
+top: 40%;
+transform: translate(-50%, -50%);
+width: 200px;
+height: 200px;
+border: 4px solid white;
+border-radius: 50%;
+background-color: none;
+opacity: 0;
+
+}
+
+svg {
+position: absolute;
+top: -10%;
+left: 0%;
+}
+svg path {
+fill: none;
+stroke: #fff;
+stroke-width: 2;
+stroke-linecap: round;
+stroke-linejoin: round;
+transition: all 0s ease-in-out;
+
+}
+
+.button {
+position: absolute;
+cursor: pointer;
+top: 80%;
+left: 25%;
+background: orange;
+color: #cccccc;
+width: 200px;
+height: 40px;
+border-radius: 20px;
+text-transform: uppercase;
+text-align: center;
+line-height: 40px;
+font-family: "open sans" arial;
+font-weight: 700;
+outline: none;
+
+}
+.button.reset {
+opacity: 0;
+transition: all 0s ease-in;
+z-index: 3;
+}
+.button.send {
+opacity: 1;
+transform: scale(1);
+transition: all 0s ease-in;
+}
+
+.button.send:hover {
+background-color: orange !important;
+cursor: pointer;
+}
+
+input[type=checkbox] {
+opacity: 0;
+display: none;
+outline: none;
+}
+input[type=checkbox]:checked ~ .circle {
+animation: disappear 2s ease-in-out forwards;
+}
+input[type=checkbox]:checked ~ .ring {
+opacity: 1;
+transition: opacity 0.2s ease-in;
+animation: disappear 2s ease-in-out forwards 0.5s;
+}
+input[type=checkbox]:checked ~ svg {
+border: none;
+}
+input[type=checkbox]:checked ~ svg path {
+d: path("M 220,160 L 100,190 	L 175,215 L 220,160  L 139,203 L 145,230 L 160,212");
+transition: all 1s cubic-bezier(0.755, 0.05, 0.855, 0.06);
+transition-delay: 1.5s;
+animation: fly-away 3s ease-in-out forwards 3s;
+}
+input[type=checkbox]:checked ~ .button.send {
+background-color: orange;
+transition: background 0s;
+transition-delay: 3s;
+animation: button-out 1.5s forwards ease-in-out 3s;
+}
+input[type=checkbox]:checked ~ .button.reset {
+opacity: 1;
+transition: all 2s ease-in 4s;
+}
+
+@keyframes button-out {
+0% {
+transform: translateX(0%);
+width: 200px;
+height: 40px;
+}
+10% {
+transform: translateX(0%);
+color: transparent;
+}
+30% {
+color: transparent;
+width: 40px;
+height: 40px;
+border-radius: 50%;
+transform: translateX(100px);
+}
+100% {
+transform: translateX(100px);
+width: 0px;
+height: 0px;
+color: transparent;
+}
+}
+@keyframes disappear {
+0% {
+transform: translate(-50%, -50%) scale(1);
+}
+25% {
+transform: translate(-50%, -50%) scale(1.1);
+}
+50% {
+transform: translate(-50%, -50%) scale(1);
+}
+75% {
+transform: translate(-50%, -50%) scale(0);
+}
+100% {
+transform: translate(-50%, -50%) scale(0);
+opacity: 0;
+}
+}
+@keyframes fly-away {
+to {
+transform: translate(450px, -80px) scale(0.1);
+opacity: 0;
+}
+}

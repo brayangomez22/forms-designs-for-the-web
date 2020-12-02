@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <section>
+        <div class="container">
+            <div class="user singinBx">
+                <div class="imgBx"><img src="img/nature5.jpg" alt=""></div>
+                <div class="formBx">
+                    <form>
+                        <h2>Sing In</h2>
+                        <input type="text" placeholder="Username">
+                        <input type="password" placeholder="Password">
+                        <input type="submit" value="Login">
+                        <p class="signup">Don't have account ? <a href="#" onclick="toggleForm();">Sign Up</a></p>
+                    </form>
+                </div>
+            </div>
+            <div class="user singupBx">
+                <div class="formBx">
+                    <form>
+                        <h2>Create an Account</h2>
+                        <input type="text" placeholder="Username">
+                        <input type="email" placeholder="Email Address">
+                        <input type="password" placeholder="Create Password">
+                        <input type="password" placeholder="Confirm Password">
+                        <input type="submit" value="Sign Up">
+                        <p class="signup">Already have a account ? <a href="#" onclick="toggleForm();">Sign In</a></p>
+                    </form>
+                </div>
+                <div class="imgBx"><img src="img/nature6.jpg" alt=""></div>
+            </div>
+        </div>
+    </section>
+
+    <script type="text/javascript">
+        function toggleForm(){
+            var container = document.querySelector('.container');
+            container.classList.toggle('active');
+        }
+    </script>
+    
+</body>
+</html>
